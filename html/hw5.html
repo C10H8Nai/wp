@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hw5</title>
+        <style>
+            #time {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 10em;
+                opacity: 0.3;
+            }
+        </style>
+    </head>
+    
+    <body onload="showTime()">
+        <div>
+            <button id="button1" onclick="job1(this)">
+                點擊後長寬增加10px
+            </button>
+        </div>
+        <div>
+            <button id="button2" onclick="job2(this)">
+                點擊後右移10px
+            </button>
+        </div>
+        <div id="time"></div>
+        <button id="movingButton">隨機顯示按鈕位置</button>
+
+        <script>
+            let left1 = 0;
+            let left2 = 0;
+            let top1 = 0;
+            let top2 = 200;
+            let height1 = 50;
+            let height2 = 50;
+            let width1 = 100;
+            let width2 = 100;
+            let position = 'sticky';
+
+            let b1 = document.getElementById('button1');
+            b1.style = `position:${position};left:${left1}px;top:${top1}px;height:${height1}px;width:${width1}px`;
+
+            let b2 = document.getElementById('button2');
+            b2.style = `position:${position};left:${left2}px;top:${top2}px;height:${height2}px;width:${width2}px`;
+
+            function job1(b1) {
+                height1 += 10;
+                width1 += 10;
+                b1.style = `position:${position};left:${left1}px;top:${top1}px;height:${height1}px;width:${width1}px`;
+            }
+
+            function job2(b2) {
+                left2 += 10;
+                b2.style = `position:${position};left:${left2}px;top:${top2}px;height:${height2}px;width:${width2}px`;
+            }
+
+            function showTime() {
+                var today=new Date();
+                var h=today.getHours();
+                var m=today.getMinutes();
+                var s=today.getSeconds();
+                document.getElementById('time').innerHTML = h+":"+m+":"+s;
+
+                // 將時間應用到按鈕上
+                var button = document.getElementById('movingButton');
+                button.style.position = 'absolute'; // 使用絕對定位
+                button.style.left = Math.floor(Math.random() * window.innerWidth) + 'px'; // 隨機 left 位置
+                button.style.top = Math.floor(Math.random() * window.innerHeight) + 'px'; // 隨機 top 位置
+
+                setTimeout(showTime,1000);
+            }
+        </script>
+    </body>
+</html>

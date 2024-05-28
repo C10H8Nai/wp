@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sha</title>
+    <link rel="stylesheet" href="stylesheet/styles.css">
+    <script src="js/sha.js"></script>
+
+    <style>
+    </style>
+</head>
+<body>
+    <div class="contain well">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label>Data:</label>
+                <div style="width: 83.333%;">
+                    <textarea class="form-control" id="data" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Hash:</label>
+                <label id="hash"></label>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        async function test() {
+            let hex = await hash('test')
+            console.log("test:"+hex)
+        }
+        test()
+        var dataIn = document.getElementById("data");
+        var hashOut = document.getElementById("hash");
+
+        dataIn.addEventListener("input", async function(){
+            hashOut.textContent = await hash(dataIn.value)
+        });
+    </script>
+</body>
+</html>

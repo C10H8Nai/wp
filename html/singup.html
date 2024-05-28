@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    .hidden {
+      display:none;
+    }
+    @keyframes fadeIn{
+      0%{opacity:0;}
+      100%{opacity:1;}
+    }
+
+    .fade {
+      animation:fadeIn 2s;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    
+  </style>
+</head>
+  
+<body>
+  <form action="/action_page.php">
+    <fieldset class="fade">
+      <legend>註冊：</legend>
+      <div id="dname">
+        <label for="fname">姓名:</label>
+        <input type="text" id="name" name="name"><br>
+      </div>
+      <div id="password">
+        <label for="username">帳號:</label>
+        <input type="text" id="username" name="username"><br>
+        <label for="pwd">密碼:</label>
+        <input type="password" id="pwd" name="pwd"><br><br>
+      </div>
+      <div id="dgender">
+        <label>性別:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">男</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">女</label><br>
+        <input type="radio" id="third_nature" name="gender" value="third_nature">
+        <label for="third_nature">第三性</label><br>
+        <input type="radio" id="hide" name="gender" value="hide">
+        <label for="hide">隱藏</label><br><br>
+      </div>
+      <div id="demail">
+        <label for="email">請輸入Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+      </div>
+      <div id="ddate">
+        <label for="birthday">生日:</label>
+        <input type="date" id="birthday" name="birthday"><br><br>
+      </div>
+      <div id="dcolor">
+        <label for="favcolor">選擇喜歡的顏色:</label>
+        <input type="color" id="favcolor" name="favcolor" value="#ffffff"><br><br>
+      </div>
+      <div id="dblood">
+        <label for="blood">選擇血型:</label>
+        <select id="blood" name="blood">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="AB">AB</option>
+          <option value="O">O</option>
+        </select><br><br>
+      </div>
+      <div id="dphone">
+        <label for="phone">輸入電話:</label>
+        <input type="tel" id="phone" name="phone" placeholder="09xxxxxxxx" pattern="09[0-9]{8}" required><br>
+        <small>格式：09xxxxxxxx</small><br><br>
+      </div>
+      <div id="dsub">
+        <input type="checkbox" id="sub" name="sub" value="Yes">
+        <label for="sub">是否訂閱</label><br><br>
+      </div>
+      <div id="dfile">
+        <label for="myfile">選擇附件:</label>
+        <input type="file" id="myfile" name="myfile"><br><br>
+      </div>
+      <div id="dself">
+        <label for="self_introduction">介紹一下自己：</label><br>
+        <textarea name="self_introduction" rows="5" cols="50"></textarea><br><br>
+      </div>
+      <input type="submit" onclick="alert('目前沒用:D')" value="送出">
+    </fieldset>
+  </form>
+  <label class="fade">Ver.1</label>
+</body>

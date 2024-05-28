@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萘伊的基地</title>
+    <link rel="stylesheet" href="stylesheet/styles.css">
+    <style>
+        #div_Lside {
+            border-radius: 10px;
+            width: 100px;
+            height: 80%;
+            position: sticky;
+            float:left;
+            transition-timing-function: ease-in-out;
+            animation: fadeInLside 1s ease-out;
+            transition: width 2s, background-color 0.3s, color 0.3s;
+        }
+        
+        #div_Lside:hover {
+            width: 200px;
+        }
+        #div_Lside a{
+            float:none;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            background-color: var(--div-background-color);
+            color: var(--div-text-color);
+        }
+        #div_Lside a:hover{
+            background-color: var(--div-text-color);
+            color: var(--div-background-color);
+        }
+        #div_Middle{
+            border-radius: 10px;
+            padding-left: 10px;
+            width: 70%;
+            height:auto;
+            float:left;
+        }
+        #div_Rside{
+            border-radius: 10px;
+            background-color: var(--div-background-color);
+            color: var(--div-text-color);
+            width:max-content;
+            height:auto;
+            float:right;
+            text-align: right;
+        }
+        .container > div{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body class="body_mode">
+    <header id="header_main" class="div_mode">
+        <img class="img headerImg" src="image/bgimg_header.png">
+        <h1>歡迎來到萘伊的基地</h1>
+    </header>
+    <div class="container">
+        <img class="img bodyImg" src="image/bgimg_body.png">
+        <div id="div_Lside" class="div_mode">
+            <p>固定左側頁面</p>
+            <label class="switch">
+                <input type="checkbox" id="switchLside" onclick="changeLside()">
+                <span class="slider"></span>
+            </label>
+            <p></p>
+            <a href="https://c10h8nai.github.io/wp/html/first.htm">第一個網頁</a><br>
+            <a href="https://c10h8nai.github.io/wp/html/self_introduction_gpt.htm">自我介紹</a><br>
+            <a href="https://c10h8nai.github.io/wp/html/singup.html">註冊</a><br>
+            <a href="https://c10h8nai.github.io/wp/html/singup_nonecss.html">註冊(無CSS)</a><br>
+            <a href="https://c10h8nai.github.io/wp/html/sha.html">SHA256雜湊值</a><br>
+            <a href="https://c10h8nai.github.io/wp/html/layout.html">Layout測試</a><br>
+        </div>
+        <div id="div_Middle" class="div_mode">
+            <h2>關於我</h2>
+            <p>安安，你可以叫我萘伊。大四電機系，平常對AI很有興趣所以滿常選資工系的課(所以我才會在這裡)</p>
+
+            <h2>我的興趣</h2>
+            <p>有自己摸過Stable Diffusion和Silly Tavern酒館，不過那時我還只用RX6700XT，基本上跑不起來，
+            最近換了RTX4070 Ti Super，有了16GVRAM應該就能做更多AI了。<br>
+            這學期想把DeepToLearning網頁學完，還有想玩玩看VITS怎麼運作等等。</p>
+
+            <h2>如果你想要和我聯絡</h2>
+            <p>Gmail：boblin00215@gmail.com</a></p>
+            <p>Discord：nai_naphthalene(你想加可以，記得跟我說你是誰)</a></p>
+            </div>
+        <div id="div_Rside">
+            <p>切換日夜</p>
+            <label class="switch">
+                <input type="checkbox" id="switchTheme" onclick="changeTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

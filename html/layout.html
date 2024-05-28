@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+          
+        body{
+            margin: 0;
+        }
+        /* Style the header */
+        .header{
+            background-color: #d4d4d4cb;
+            padding: 10px;
+            height: 20vh;
+            width: 100vw;
+            overflow: hidden;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            
+        }
+         
+        /* Style the top navigation bar */
+        .topnav{
+            overflow: hidden;
+            background-color: #1c2024;
+        }
+        
+        /* Style the topnav links */
+        .topnav a{
+            float: right;
+            display: block;
+            color: #d6e1e6;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        /* Change color on hover */
+        .topnav a:hover{
+            background-color: #d6e1e6;
+            color: #343b43;
+        }
+        
+        /* Create three unequal columns that floats next to each other */
+        .column{
+            background-color: #afafafa6;
+            float:left;
+            padding: 10px;
+        }
+        
+        /* Left and right column */
+        .column.side{
+            width: 25%;
+        }
+        
+        /* Middle column */
+        .column.middle{
+            width: 50%;
+        }
+        
+        /* Clear floats after the columns */
+        .row::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column.side, .column.middle{
+                width: 100%;
+            }
+        }
+        .img.headerImg{
+            position: absolute;
+            left: 50vw;
+            top:0vh;
+            transform: translate(-50%,0%);
+            width: 100vw;
+            height: 20vh;
+            object-fit: cover;
+            object-position:center;
+            z-index: -1;
+            filter: blur(3px);
+        }
+        .img.bodyImg{
+            position:absolute;
+            left: 0%;
+            top: 20%;
+            width: 100vw;
+            height: 80vh;
+            object-fit: cover;
+            object-position:top;
+            z-index: -1;
+            filter: blur(4px);
+        }
+        .img{
+            position:relative;
+            width:50px;
+            height:50px;
+            object-fit:cover;
+            object-position:center;
+            z-index:0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <img class="img headerImg" src="image/bgimg_header.png">
+        <h1>標題</h1>
+        <p>副標題</p>
+    </div>
+
+    <div class="topnav">
+        <img class="img" src="image/icon.png">
+        <a href="https://c10h8nai.github.io/wp/html/main.html">首頁</a>
+        <a href="#">bbb</a>
+        <a href="#">ccc</a>
+        <a href="#">ddd</a>
+        <a href="#">eee</a>
+    </div>
+
+    <div class="row">
+        <img class="img bodyImg" src="image/bgimg_body.png">
+        <div class="column side">
+            <h2>側欄</h2>
+            <p>側欄內容</p>
+        </div>
+
+        <div class="column middle">
+            <h2>主欄</h2>
+            <p>主欄內容1</p>
+            <p>主欄內容2</p>
+        </div>
+        <div class="column side">
+            <h2>側欄</h2>
+            <p>側欄內容</p>
+        </div>
+    </div>
+</body>
+</html>
