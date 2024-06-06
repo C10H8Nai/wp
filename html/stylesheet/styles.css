@@ -234,7 +234,7 @@ input:checked + .slider:before {
     display:block;
     width:13dvw;
     margin:10px auto;
-    height: 15em;
+    height: 16em;
     padding: 10px;
 
     background-color: var(--div-background-color);
