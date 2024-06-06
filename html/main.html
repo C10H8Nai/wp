@@ -46,8 +46,8 @@
             border-radius: 10px;
             background-color: var(--div-background-color);
             color: var(--div-text-color);
-            width:max-content;
-            height:auto;
+            width:15dvw;
+            height:70vh;
             float:right;
             text-align: right;
         }
@@ -92,14 +92,23 @@
             <p>Gmail：boblin00215@gmail.com</a></p>
             <p>Discord：nai_naphthalene(你想加可以，記得跟我說你是誰)</a></p>
             </div>
-        <div id="div_Rside">
-            <p>切換日夜</p>
-            <label class="switch">
-                <input type="checkbox" id="switchTheme" onclick="changeTheme()">
-                <span class="slider"></span>
-            </label>
+        <div id="div_Rside" >
+            <div id="changeColor" class="centered">
+                <p>切換日夜</p>
+                <label class="switch">
+                    <input type="checkbox" id="switchTheme" onclick="changeTheme()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="centered vertical">
+                <label>基於groq的llama3-70b聊天AI</label>
+                <textarea  id="question" placeholder="請輸入文字..." class="textarea_chat"></textarea>
+                <button onclick="chat()">開始</button>
+                <textarea readonly id="answer" placeholder="" class="textarea_chat"></textarea> 
+            </div>
         </div>
     </div>
     <script src="js/main.js"></script>
+    <script src="groq/groq.js"></script>
 </body>
 </html>

@@ -18,8 +18,8 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 div.container {
-    width:auto;
-    display:flexbox;
+    width:100%;
+    display:inline-block;
 }
 .body_day_mode {
     background-color: #e3e3e3;
@@ -216,6 +216,29 @@ input:checked + .slider:before {
     object-fit:cover;
     object-position:center;
     z-index:0;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.vertical {
+    flex-direction: column; /* 垂直排列元素 */
+    width: 100%; /* 元素寬度為容器寬度 */
+}
+
+.textarea_chat {
+    display:block;
+    width:13dvw;
+    margin:10px auto;
+    height: 15em;
+    padding: 10px;
+
+    background-color: var(--div-background-color);
+    color: var(--div-text-color);
 }
 
 @keyframes fadeIn {
