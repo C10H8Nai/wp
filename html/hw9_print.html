@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print</title>
+</head>
+<body>
+    <div style="display:none;">
+        <img id="icon" src="image/icon1.png">
+        <img id="icon_cir" src="image/icon1.png">
+    </div>
+    <canvas id="canvas1" width="1080" height="720" style="border:1px solid black;">
+        Sorry, your browser does not support canvas.
+    </canvas>
+        
+    <script>
+        const canvas = document.getElementById("canvas1");
+
+        //紅色矩形
+        const ctx1 = canvas.getContext("2d");
+        ctx1.save();
+        ctx1.fillStyle = "red";
+        ctx1.fillRect(0,0,100,100);
+        ctx1.restore();
+
+        //斜線
+        const ctx2 = canvas.getContext("2d");
+        ctx2.save();
+        ctx2.beginPath();
+        ctx2.moveTo(100,0);
+        ctx2.lineTo(200,100);
+        ctx2.stroke();
+        ctx2.restore();
+
+        //圓形
+        const ctx3 = canvas.getContext("2d");
+        ctx3.save();
+        ctx3.beginPath();
+        ctx3.arc(250,50,50,0,2*Math.PI);
+        ctx3.stroke();
+        ctx3.restore();
+
+        //紅色有變化斜線
+        const ctx4 = canvas.getContext("2d");
+        ctx4.save();
+        ctx4.beginPath();
+        ctx4.moveTo(400, 0);
+        ctx4.lineTo(300, 100);
+        ctx4.lineWidth = 10;
+        ctx4.strokeStyle = "red";
+        ctx4.lineCap = "round";
+        ctx4.stroke();
+        ctx4.restore();
+
+        //有邊透明矩形
+        const ctx5 = canvas.getContext("2d");
+        ctx5.save();
+        ctx5.beginPath();
+        ctx5.fillStyle = "rgb(255 255 0 / 70%)";
+        ctx5.fillRect(400,0, 100,100);
+        ctx5.strokeStyle = "rgb(255 0 255 / 40%)";
+        ctx5.lineWidth = 3;
+        ctx5.strokeRect(400,0, 100,100);
+        ctx5.stroke();
+        ctx5.restore();
+
+        //嘗試畫個五角星
+        const ctx6 = canvas.getContext("2d");
+        ctx6.save();
+        ctx6.beginPath();
+        // Set start-point
+        ctx6.moveTo(515,30);
+        // Set sub-points
+        ctx6.lineTo(595,30);
+        ctx6.lineTo(530,85);
+        ctx6.lineTo(555,10);
+        ctx6.lineTo(580,85);
+        // Set end-point
+        ctx6.lineTo(515,30);
+        // Stroke it (do the drawing)
+        ctx6.strokeStyle = "green";
+        ctx6.stroke();
+        ctx6.restore();
+
+        //中間清除圖形
+        const ctx7 = canvas.getContext("2d");
+        ctx7.save();
+        ctx7.beginPath();
+        ctx7.strokeStyle = "blue";
+        ctx7.fillStyle = "pink";
+        ctx7.strokeRect(600,0, 100,100);
+        ctx7.fillRect(600,0, 100,100);
+        ctx7.clearRect(655,25, 50,50);
+        ctx7.stroke();
+        ctx7.restore();
+
+        //半圓
+        const ctx8 = canvas.getContext("2d");
+        ctx8.save();
+        ctx8.beginPath();
+        ctx8.strokeStyle = "black";
+        ctx8.arc(750, 50, 30, 0, 1 * Math.PI,true);
+        ctx8.stroke();
+        ctx8.restore();
+
+        //貝塞爾曲線
+        const ctx9 = canvas.getContext("2d");
+        ctx9.save();
+        ctx9.beginPath();
+        ctx9.moveTo(800, 0);
+        ctx9.bezierCurveTo(810, 90, 890, 10, 900, 100);
+        ctx9.stroke();
+        ctx9.restore();
+
+        //斜漸變矩形
+        const ctx10 = canvas.getContext("2d");
+        ctx10.save();
+        ctx10.beginPath();
+        // Create linear gradient
+        const grad10=ctx10.createLinearGradient(900,0, 1080,100);
+        grad10.addColorStop(0, "black");
+        grad10.addColorStop(0.5, "pink");
+        grad10.addColorStop(1, "darkgray");
+        // Fill rectangle with gradient
+        ctx10.fillStyle = grad10;
+        ctx10.fillRect(900,0, 180,100);
+        ctx10.stroke();
+        ctx10.restore();
+
+        //中心漸變矩形
+        const ctx11 = canvas.getContext("2d");
+        ctx11.save();
+        ctx11.beginPath();
+        // Create gradient
+        const grad11=ctx11.createRadialGradient(100,200,10,100,200,150);
+        grad11.addColorStop(0,"pink");
+        grad11.addColorStop(0.3,"gray");
+        grad11.addColorStop(1,"lightblue");
+        // Fill rectangle with gradient
+        ctx11.fillStyle = grad11;
+        ctx11.fillRect(0,100,200,200);
+        ctx11.stroke();
+        ctx11.restore();
+
+        //文字
+        const ctx12 = canvas.getContext("2d");
+        ctx12.save();
+        ctx12.beginPath();
+        ctx12.shadowColor = "lightblue";
+        ctx12.shadowBlur = 4;
+        ctx12.shadowOffsetX = 8;
+        ctx12.shadowOffsetY = 4;
+        ctx12.fillStyle = "gray";
+        ctx12.font = "italic 60px 微軟正黑體";
+        ctx12.fillText("Hello World",200,250);
+        ctx12.stroke();
+        ctx12.restore();
+
+        //圖像
+        const ctx13 = canvas.getContext("2d");
+        ctx13.save();
+        ctx13.beginPath();
+        const image13 = document.getElementById("icon");
+        image13.addEventListener("load", (e) => {
+            ctx13.drawImage(image13, 580, 100, 180, 180);
+        });
+        if (image13.complete) {
+            image13.dispatchEvent(new Event('load'));
+        }
+        ctx13.stroke();
+        ctx13.restore();
+
+        //旋轉矩形
+        const ctx14 = canvas.getContext("2d");
+        ctx14.save();
+        ctx14.beginPath();
+        ctx14.fillStyle = "yellow";
+        ctx14.fillRect(850, 100, 200, 100)
+        ctx14.transform(1, 0.5, -0.5, 1, 30, 10);
+
+        ctx14.fillStyle = "red";
+        ctx14.fillRect(710, -250, 200, 100);
+        ctx14.transform(1, 0.5, -0.5, 1, 30, 10);
+        
+        ctx14.fillStyle = "blue";
+        ctx14.fillRect(470, -480, 200, 100);
+        ctx14.stroke();
+        ctx14.restore();
+
+        //裁剪圖形(圖片)
+        const ctx15 = canvas.getContext("2d");
+        ctx15.save();
+        ctx15.beginPath();
+        const image15 = document.getElementById("icon_cir");
+        image15.addEventListener("load", (e) => {
+            ctx15.beginPath();
+            ctx15.arc(100, 400, 100, 0, Math.PI * 2);
+            ctx15.clip();
+            ctx15.drawImage(image15, 0, 300, 200, 200);
+        });
+        if (image15.complete) {
+            image13.dispatchEvent(new Event('load'));
+        }
+        ctx15.stroke();
+        ctx15.restore();
+
+        //重疊顏色
+        const ctx16 = canvas.getContext("2d");
+        ctx16.save();
+        ctx16.beginPath();
+        // Set type of compositing
+        ctx16.globalCompositeOperation = "screen";
+        // Draw two overlapping rectangles  
+        ctx16.fillStyle = "pink";
+        ctx16.fillRect(250, 300, 200, 200);
+        ctx16.fillStyle = "gray";
+        ctx16.fillRect(350, 400, 200, 200);
+        ctx16.stroke();
+        ctx16.restore();
+    </script>
+</body>
+</html>
